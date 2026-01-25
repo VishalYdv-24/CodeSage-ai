@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function reviewCode(payload) {
-    const response = await fetch(`${API_BASE_URL}/code-review/`,{
+    const response = await fetch(`${API_BASE_URL}/api/code-review/`,{
         method:"POST",
         headers:{
             "content-type":"application/json",
