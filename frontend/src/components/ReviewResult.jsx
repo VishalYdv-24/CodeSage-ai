@@ -11,13 +11,13 @@ import Editor from "@monaco-editor/react";
 
 export default function ReviewResult({ review }) {
   const [copied, setCopied] = useState(false);
-  const [view, setView] = useState("final"); // "final" | "diff"
+  const [view, setView] = useState("final"); 
 
   useEffect(() => {
     if (review) {
       Prism.highlightAll();
       setCopied(false);
-      setView("final"); // reset view on new review
+      setView("final"); 
     }
   }, [review]);
 
@@ -38,7 +38,7 @@ export default function ReviewResult({ review }) {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold">AI Review</h2>
 
-        {/* View Toggle */}
+
         <div className="flex rounded-lg border overflow-hidden">
           <button
             onClick={() => setView("final")}
@@ -61,7 +61,7 @@ export default function ReviewResult({ review }) {
         </div>
       </div>
 
-      {/* FINAL VIEW */}
+
       {view === "final" && (
         <>
           <p className="mb-3 text-gray-700">{review.summary}</p>
@@ -116,7 +116,7 @@ export default function ReviewResult({ review }) {
         </>
       )}
 
-      {/* DIFF VIEW */}
+
       {view === "diff" && (
         <DiffView
           oldCode={review.original_code}

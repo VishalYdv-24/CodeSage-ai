@@ -25,5 +25,5 @@ export function detectLanguage(code) {
     return "python";
   }
 
-  return null; // fallback
+  return null;
 }

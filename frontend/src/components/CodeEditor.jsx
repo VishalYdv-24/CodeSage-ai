@@ -20,7 +20,7 @@ export default function CodeEditor({ onSubmit, loading }) {
   const editorRef = useRef(null);
   const languageRef = useRef(language);
 
-  // Keep latest language in ref (prevents stale closure bugs)
+
   useEffect(() => {
     languageRef.current = language;
   }, [language]);
@@ -28,7 +28,7 @@ export default function CodeEditor({ onSubmit, loading }) {
   const handleEditorDidMount = (editor) => {
     editorRef.current = editor;
 
-    // Select placeholder text initially
+
     editor.setSelection({
       startLineNumber: 1,
       startColumn: 1,
@@ -36,7 +36,7 @@ export default function CodeEditor({ onSubmit, loading }) {
       endColumn: PLACEHOLDERS[languageRef.current].length + 1,
     });
 
-    // Paste detection
+
     const disposable = editor.onDidPaste(() => {
       const pastedCode = editor.getValue();
       const detected = detectLanguage(pastedCode);
@@ -49,11 +49,11 @@ export default function CodeEditor({ onSubmit, loading }) {
       }
     });
 
-    // Cleanup listener if editor is disposed
+
     editor.onDidDispose(() => disposable.dispose());
   };
 
-  // Update placeholder when language changes (only if user hasn't typed real code)
+
   useEffect(() => {
     if (!editorRef.current) return;
 

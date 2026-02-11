@@ -28,7 +28,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-3xl mx-auto">
 
-        {/* Brand Header */}
+
         <div className="flex flex-col items-center mb-8">
           <div className="flex items-center gap-3">
             <h1 className="text-3xl font-bold text-gray-800 tracking-tight">
